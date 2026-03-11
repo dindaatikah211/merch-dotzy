@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Instagram, MessageCircle, ExternalLink } from "lucide-react";
-
-const INSTAGRAM_URL = "https://www.instagram.com/REPLACE_YOUR_IG";
-const WHATSAPP_URL  = "https://wa.me/628XXXXXXXXXX";
+import { INSTAGRAM_URL, WHATSAPP_URL } from "../contants/cta";
 
 export function CtaSection() {
   const ref = useRef<HTMLElement>(null);
@@ -38,7 +36,7 @@ export function CtaSection() {
         className="max-w-4xl mx-auto rounded-5xl border-4 border-neutral-900 overflow-hidden relative"
         style={{ background: "var(--coral)" }}
       >
-        {/* Decorative blobs inside card */}
+        {/* Decorative blobs */}
         <div
           className="absolute top-[-60px] right-[-60px] w-48 h-48 rounded-full opacity-30"
           style={{ background: "var(--yellow)", filter: "blur(40px)" }}

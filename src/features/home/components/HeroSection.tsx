@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
-
-const floatingEmojis = ["✨", "🎨", "📌", "🔑", "👜", "🌈", "⭐", "💫", "🎀", "🖍️"];
+import { FLOATING_EMOJIS, PRODUCT_BADGES } from "../contants/Hero";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,9 +12,7 @@ export function HeroSection() {
   const emojiRefs    = useRef<HTMLSpanElement[]>([]);
 
   useEffect(() => {
-    // Dynamically import anime.js to avoid SSR issues
     import("animejs").then(({ default: anime }) => {
-      // Title reveal
       anime({
         targets: titleRef.current,
         opacity: [0, 1],
@@ -26,7 +22,6 @@ export function HeroSection() {
         delay: 200,
       });
 
-      // Subtitle
       anime({
         targets: subtitleRef.current,
         opacity: [0, 1],
@@ -36,7 +31,6 @@ export function HeroSection() {
         delay: 500,
       });
 
-      // Buttons
       anime({
         targets: btnRef.current,
         opacity: [0, 1],
@@ -46,7 +40,6 @@ export function HeroSection() {
         delay: 750,
       });
 
-      // Floating emojis staggered
       anime({
         targets: emojiRefs.current,
         opacity: [0, 1],
@@ -57,7 +50,6 @@ export function HeroSection() {
         delay: anime.stagger(80, { start: 400 }),
       });
 
-      // Continuous float loop for emojis
       emojiRefs.current.forEach((el, i) => {
         anime({
           targets: el,
@@ -78,30 +70,18 @@ export function HeroSection() {
       ref={containerRef}
     >
       {/* Blob backgrounds */}
-      <div
-        className="absolute top-[-80px] left-[-80px] w-[400px] h-[400px] rounded-full blob-yellow animate-blob"
-        style={{ animationDelay: "0s" }}
-      />
-      <div
-        className="absolute bottom-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full blob-coral animate-blob"
-        style={{ animationDelay: "2s" }}
-      />
-      <div
-        className="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full blob-mint animate-blob"
-        style={{ animationDelay: "4s" }}
-      />
+      <div className="absolute top-[-80px] left-[-80px] w-[400px] h-[400px] rounded-full blob-yellow animate-blob" style={{ animationDelay: "0s" }} />
+      <div className="absolute bottom-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full blob-coral animate-blob" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full blob-mint animate-blob" style={{ animationDelay: "4s" }} />
 
       {/* Floating emojis */}
       <div className="absolute inset-0 pointer-events-none">
-        {floatingEmojis.map((emoji, i) => (
+        {FLOATING_EMOJIS.map((emoji, i) => (
           <span
             key={i}
             ref={(el) => { if (el) emojiRefs.current[i] = el; }}
             className="absolute text-2xl md:text-3xl select-none opacity-0"
-            style={{
-              left: `${8 + (i * 9) % 84}%`,
-              top:  `${10 + (i * 13) % 75}%`,
-            }}
+            style={{ left: `${8 + (i * 9) % 84}%`, top: `${10 + (i * 13) % 75}%` }}
           >
             {emoji}
           </span>
@@ -120,8 +100,7 @@ export function HeroSection() {
           className="font-display text-6xl md:text-8xl leading-tight mb-6 opacity-0"
           style={{ color: "var(--fg)" }}
         >
-          Meraki{" "}
-          <span className="gradient-text">✿</span>
+          Meraki <span className="gradient-text">✿</span>
         </h1>
 
         <p
@@ -143,12 +122,7 @@ export function HeroSection() {
 
         {/* Product type badges */}
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {[
-            { label: "Stiker",            color: "var(--yellow)",  emoji: "✨" },
-            { label: "Gantungan Kunci",   color: "var(--mint)",    emoji: "🔑" },
-            { label: "Pin",               color: "var(--coral)",   emoji: "📌" },
-            { label: "Totebag",           color: "var(--sky)",     emoji: "👜" },
-          ].map((item) => (
+          {PRODUCT_BADGES.map((item) => (
             <span
               key={item.label}
               className="px-4 py-2 rounded-full border-2 border-neutral-900 text-sm font-bold font-body shadow-[3px_3px_0_var(--fg)]"

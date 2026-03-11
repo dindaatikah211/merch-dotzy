@@ -1,17 +1,7 @@
-export function MarqueeSection() {
-  const items = [
-    "✨ Stiker Vinyl Premium",
-    "🔑 Gantungan Kunci Acrylic",
-    "📌 Pin Button & Enamel",
-    "👜 Totebag Canvas",
-    "🎨 Desain Original",
-    "🌈 Warna Cerah & Ceria",
-    "⭐ Limited Edition",
-    "💖 Made with Love",
-  ];
+import { MARQUEE_ITEMS } from "../contants/marquee";
 
-  // Double the items for seamless loop
-  const doubled = [...items, ...items];
+export function MarqueeSection() {
+  const doubled = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
 
   return (
     <div

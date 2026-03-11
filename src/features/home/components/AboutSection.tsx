@@ -2,33 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Palette, Heart, Zap, Globe } from "lucide-react";
-
-const values = [
-  {
-    icon: Palette,
-    title: "Desain Original",
-    desc: "Semua desain dibuat sendiri dari nol — tidak ada yang copy-paste dari mana-mana.",
-    color: "var(--yellow)",
-  },
-  {
-    icon: Heart,
-    title: "Dibuat dengan Hati",
-    desc: "Meraki artinya mengerjakan sesuatu dengan sepenuh jiwa dan cinta. Itu filosofi kami.",
-    color: "var(--coral)",
-  },
-  {
-    icon: Zap,
-    title: "Kualitas Terjamin",
-    desc: "Material premium pilihan agar produkmu tahan lama dan tetap keren.",
-    color: "var(--sky)",
-  },
-  {
-    icon: Globe,
-    title: "Untuk Semua Orang",
-    desc: "Bukan hanya anak IT — siapa pun bisa menemukan produk yang cocok di sini.",
-    color: "var(--mint)",
-  },
-];
+import { VALUES } from "../contants/About";
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -91,25 +65,15 @@ export function AboutSection() {
               >
                 🎨
               </div>
-              <span
-                className="absolute -top-4 -right-4 text-4xl animate-wiggle"
-                aria-hidden
-              >
-                ✨
-              </span>
-              <span
-                className="absolute -bottom-4 -left-4 text-4xl animate-float"
-                aria-hidden
-              >
-                💫
-              </span>
+              <span className="absolute -top-4 -right-4 text-4xl animate-wiggle" aria-hidden>✨</span>
+              <span className="absolute -bottom-4 -left-4 text-4xl animate-float" aria-hidden>💫</span>
             </div>
           </div>
         </div>
 
         {/* Values grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {values.map((v, i) => (
+          {VALUES.map((v, i) => (
             <div
               key={v.title}
               className="animate-on-scroll rounded-3xl p-6 border-2 border-white/10 hover:border-white/30 transition-colors"
