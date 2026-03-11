@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Plus, Minus } from "lucide-react";
-import { FAQS } from "../contants/FAQ";
+import { FAQS } from "../contants/Faq";
 
 export function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
