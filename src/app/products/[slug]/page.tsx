@@ -1,4 +1,4 @@
-import { Navbar } from "@/shared/components/commons/navbar/Navbar";
+import { Navbar } from "@/shared/components/commons/Navbar";
 import { Footer } from "@/shared/components/commons/Footer";
 import { ProductDetail } from "@/features/products/ProductDetail";
 import { products } from "@/features/products/products.data";
