@@ -1,12 +1,11 @@
 import { Navbar } from "@/shared/components/commons/Navbar";
 import { Footer } from "@/shared/components/commons/Footer";
-import { HeroSection } from "@/features/home/HeroSection";
-import { MarqueeSection } from "@/features/home/MarqueeSection";
 import { ProductsSection } from "@/features/products/ProductsSection";
-import { AboutSection } from "@/features/home/AboutSection";
-import { FaqSection } from "@/features/home/FaqSection";
-import { CtaSection } from "@/features/home/CtaSection";
-
+import { HeroSection } from "@/features/home/components/HeroSection";
+import { MarqueeSection } from "@/features/home/components/MarqueeSection";
+import { AboutSection } from "@/features/home/components/AboutSection";
+import { FaqSection } from "@/features/home/components/FaqSection";
+import { CtaSection } from "@/features/home/components/CtaSection";
 export default function HomePage() {
   return (
     <>
