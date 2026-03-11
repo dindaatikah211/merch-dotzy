@@ -1,4 +1,4 @@
-import { Navbar } from "@/shared/components/commons/navbar/Navbar";
+import { Navbar } from "@/shared/components/commons/Navbar";
 import { Footer } from "@/shared/components/commons/Footer";
 import { HeroSection } from "@/features/home/HeroSection";
 import { MarqueeSection } from "@/features/home/MarqueeSection";
