@@ -1,7 +1,7 @@
 import { Instagram, MessageCircle, Heart } from "lucide-react";
-
-const INSTAGRAM_URL = "https://www.instagram.com/REPLACE_YOUR_IG";
-const WHATSAPP_URL  = "https://wa.me/628XXXXXXXXXX";
+import { Button } from "@/shared/components/ui/button";
+import { Separator } from "@/shared/components/ui/separator";
+import { INSTAGRAM_URL, WHATSAPP_URL } from "../navbar/contants";
 
 export function Footer() {
   return (
@@ -13,7 +13,7 @@ export function Footer() {
         {/* Brand */}
         <div>
           <p className="font-display text-3xl" style={{ color: "var(--yellow)" }}>
-            Meraki ✿
+            Dotzy ✿
           </p>
           <p className="text-sm mt-1 opacity-70">
             Merch penuh hati, desain penuh makna.
@@ -29,30 +29,34 @@ export function Footer() {
 
         {/* Socials */}
         <div className="flex items-center gap-3">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full border-2 border-white/30 hover:border-[var(--yellow)] hover:text-[var(--yellow)] transition-colors"
-            aria-label="Instagram"
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full border-2 border-white/30 bg-transparent hover:border-[var(--yellow)] hover:text-[var(--yellow)] hover:bg-transparent"
+            asChild
           >
-            <Instagram size={20} />
-          </a>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full border-2 border-white/30 hover:border-[var(--mint)] hover:text-[var(--mint)] transition-colors"
-            aria-label="WhatsApp"
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full border-2 border-white/30 bg-transparent hover:border-[var(--mint)] hover:text-[var(--mint)] hover:bg-transparent"
+            asChild
           >
-            <MessageCircle size={20} />
-          </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <MessageCircle size={20} />
+            </a>
+          </Button>
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-4 text-center text-xs opacity-50">
+      <Separator className="bg-white/10" />
+
+      <div className="py-4 text-center text-xs opacity-50">
         <p className="flex items-center justify-center gap-1">
-          Made with <Heart size={12} fill="currentColor" /> by Meraki &mdash; {new Date().getFullYear()}
+          Made with <Heart size={12} fill="currentColor" /> by Dotzy &mdash; {new Date().getFullYear()}
         </p>
       </div>
     </footer>

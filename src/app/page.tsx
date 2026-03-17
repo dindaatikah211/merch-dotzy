@@ -1,11 +1,12 @@
-import { Navbar } from "@/shared/components/commons/Navbar";
-import { Footer } from "@/shared/components/commons/Footer";
-import { ProductsSection } from "@/features/products/ProductsSection";
-import { HeroSection } from "@/features/home/components/HeroSection";
-import { MarqueeSection } from "@/features/home/components/MarqueeSection";
-import { AboutSection } from "@/features/home/components/AboutSection";
-import { FaqSection } from "@/features/home/components/FaqSection";
-import { CtaSection } from "@/features/home/components/CtaSection";
+import { Navbar }          from "@/shared/components/commons/navbar/Navbar";
+import { Footer }          from "@/shared/components/commons/Footer";
+import { ProductsSection } from "@/features/products/components";
+import { HeroSection }     from "@/features/home/components";
+import { MarqueeSection }  from "@/features/home/components";
+import { AboutSection }    from "@/features/home/components";
+import { FaqSection }      from "@/features/home/components";
+import { CtaSection }      from "@/features/home/components";
+
 export default function HomePage() {
   return (
     <>

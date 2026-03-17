@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShoppingBag, Check, ChevronRight } from "lucide-react";
-import { type Product, formatPrice } from "./products.data";
+import { Button } from "@/shared/components/ui/button";
+import { Badge } from "@/shared/components/ui/badge";
+import { Separator } from "@/shared/components/ui/separator";
+import { type Product } from "../types";
+import { formatPrice } from "../helpers";
 
 export function ProductDetail({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -26,9 +30,9 @@ export function ProductDetail({ product }: { product: Product }) {
     <div className="max-w-5xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1 text-sm text-neutral-400 mb-8 product-content opacity-0">
-        <Link href="/" className="hover:text-[var(--coral)]">Beranda</Link>
+        <Link href="/" className="hover:text-[var(--coral)] transition-colors">Beranda</Link>
         <ChevronRight size={14} />
-        <Link href="/#products" className="hover:text-[var(--coral)]">Produk</Link>
+        <Link href="/#products" className="hover:text-[var(--coral)] transition-colors">Produk</Link>
         <ChevronRight size={14} />
         <span className="text-neutral-700 font-semibold">{product.name}</span>
       </nav>
@@ -37,7 +41,7 @@ export function ProductDetail({ product }: { product: Product }) {
         {/* Images */}
         <div className="product-content opacity-0">
           <div
-            className="relative rounded-3xl overflow-hidden border-3 aspect-square mb-3"
+            className="relative rounded-3xl overflow-hidden aspect-square mb-3"
             style={{ border: "3px solid var(--fg)", background: product.color }}
           >
             <Image
@@ -68,25 +72,22 @@ export function ProductDetail({ product }: { product: Product }) {
 
         {/* Info */}
         <div className="flex flex-col gap-4 product-content opacity-0">
-          <span
-            className="section-tag w-fit"
-            style={{ background: product.color }}
+          <Badge
+            className="w-fit border border-neutral-300 text-sm font-bold"
+            style={{ background: product.color, color: "var(--fg)" }}
           >
             {product.emoji} {product.category.replace("-", " ")}
-          </span>
+          </Badge>
 
           <h1 className="font-display text-4xl">{product.name}</h1>
 
-          <p
-            className="font-display text-3xl"
-            style={{ color: product.accentColor }}
-          >
+          <p className="font-display text-3xl" style={{ color: product.accentColor }}>
             {formatPrice(product.price)}
           </p>
 
-          <p className="text-neutral-600 leading-relaxed">
-            {product.longDescription}
-          </p>
+          <p className="text-neutral-600 leading-relaxed">{product.longDescription}</p>
+
+          <Separator />
 
           {/* Specs */}
           <div className="bg-neutral-100 rounded-2xl p-4">
@@ -102,24 +103,23 @@ export function ProductDetail({ product }: { product: Product }) {
           </div>
 
           {/* Order button */}
-          <a
-            href={product.gformUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            asChild
             className="btn-primary text-base justify-center"
             style={{ background: product.accentColor }}
           >
-            <ShoppingBag size={20} />
-            Pesan via Google Form
-          </a>
+            <a href={product.gformUrl} target="_blank" rel="noopener noreferrer">
+              <ShoppingBag size={20} />
+              Pesan via Google Form
+            </a>
+          </Button>
 
-          <Link
-            href="/"
-            className="btn-secondary text-sm justify-center"
-          >
-            <ArrowLeft size={16} />
-            Kembali ke Beranda
-          </Link>
+          <Button variant="outline" asChild className="btn-secondary text-sm justify-center">
+            <Link href="/">
+              <ArrowLeft size={16} />
+              Kembali ke Beranda
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
