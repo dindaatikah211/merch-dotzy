@@ -3,15 +3,15 @@ import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/shared/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Meraki — Merch Penuh Hati",
+  title: "Dotzy",
   description:
-    "Stiker, gantungan kunci, pin, dan totebag yang didesain dengan sepenuh hati. Meraki — karena setiap karya layak untuk dirayakan.",
-  keywords: ["merch", "stiker", "totebag", "pin", "gantungan kunci", "meraki"],
+    "Stiker, gantungan kunci, pin, dan totebag yang didesain dengan sepenuh hati. Dotzy — karena setiap karya layak untuk dirayakan.",
+  keywords: ["merch", "stiker", "totebag", "pin", "gantungan kunci", "dotzy"],
   openGraph: {
-    title: "Meraki — Merch Penuh Hati",
+    title: "Dotzy",
     description: "Stiker, gantungan kunci, pin, dan totebag unik buatan lokal.",
     type: "website",
   },

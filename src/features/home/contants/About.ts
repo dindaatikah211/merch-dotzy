@@ -10,7 +10,7 @@ export const VALUES = [
   {
     icon: Heart,
     title: "Dibuat dengan Hati",
-    desc: "Meraki artinya mengerjakan sesuatu dengan sepenuh jiwa dan cinta. Itu filosofi kami.",
+    desc: "Dotzy artinya mengerjakan sesuatu dengan sepenuh jiwa dan cinta. Itu filosofi kami.",
     color: "var(--coral)",
   },
   {

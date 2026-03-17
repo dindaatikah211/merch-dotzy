@@ -39,14 +39,14 @@ export function AboutSection() {
               className="section-tag"
               style={{ background: "var(--yellow)", color: "var(--fg)" }}
             >
-              Tentang Meraki
+              Tentang Dotzy
             </span>
             <h2 className="font-display text-4xl md:text-5xl mt-2 mb-4">
               Lebih dari{" "}
               <span style={{ color: "var(--yellow)" }}>sekedar merch</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-4">
-              Meraki lahir dari keinginan untuk menghadirkan merch yang benar-benar berkarakter.
+              Dotzy lahir dari keinginan untuk menghadirkan merch yang benar-benar berkarakter.
               Bukan sekadar barang massal — tapi karya yang bisa kamu banggakan.
             </p>
             <p className="text-white/70 leading-relaxed">

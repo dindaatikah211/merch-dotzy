@@ -1,6 +1,6 @@
 export const FAQS = [
   {
-    q: "Bagaimana cara memesan produk Meraki?",
+    q: "Bagaimana cara memesan produk Dotzy?",
     a: "Pilih produk yang kamu suka, klik tombol 'Pesan via Google Form', lalu isi form dengan lengkap. Kami akan segera menghubungimu via WhatsApp untuk konfirmasi pesanan.",
   },
   {
@@ -9,7 +9,7 @@ export const FAQS = [
   },
   {
     q: "Apakah bisa custom desain?",
-    a: "Saat ini produk yang tersedia adalah koleksi ready stock dengan desain original Meraki. Untuk custom desain, silakan hubungi kami dulu via WhatsApp — kami terbuka untuk diskusi!",
+    a: "Saat ini produk yang tersedia adalah koleksi ready stock dengan desain original Dotzy. Untuk custom desain, silakan hubungi kami dulu via WhatsApp — kami terbuka untuk diskusi!",
   },
   {
     q: "Metode pembayaran apa yang tersedia?",

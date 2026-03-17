@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const product = products.find((p) => p.slug === slug);
   if (!product) return {};
   return {
-    title: `${product.name} — Meraki`,
+    title: `${product.name} — Dotzy`,
     description: product.description,
   };
 }

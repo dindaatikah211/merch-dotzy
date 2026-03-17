@@ -100,7 +100,7 @@ export function HeroSection() {
           className="font-display text-6xl md:text-8xl leading-tight mb-6 opacity-0"
           style={{ color: "var(--fg)" }}
         >
-          Meraki <span className="gradient-text">✿</span>
+          Dotzy <span className="gradient-text">✿</span>
         </h1>
 
         <p
