@@ -3,12 +3,22 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, Check, ChevronRight } from "lucide-react";
+import { ArrowLeft, ShoppingBag } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { Separator } from "@/shared/components/ui/separator";
 import { type Product } from "../types";
 import { formatPrice } from "../helpers";
+
+function PixelCheck({ color }: { color: string }) {
+  return (
+    <svg width="12" height="12" viewBox="0 0 3 3" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="0" y="2" width="1" height="1" fill={color} />
+      <rect x="1" y="1" width="1" height="1" fill={color} />
+      <rect x="2" y="0" width="1" height="1" fill={color} />
+    </svg>
+  );
+}
 
 export function ProductDetail({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -28,21 +38,24 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-sm text-neutral-400 mb-8 product-content opacity-0">
-        <Link href="/" className="hover:text-[var(--coral)] transition-colors">Beranda</Link>
-        <ChevronRight size={14} />
-        <Link href="/#products" className="hover:text-[var(--coral)] transition-colors">Produk</Link>
-        <ChevronRight size={14} />
-        <span className="text-neutral-700 font-semibold">{product.name}</span>
+      {/* Pixel breadcrumb */}
+      <nav
+        className="flex items-center gap-1 mb-8 product-content opacity-0"
+        style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.45rem" }}
+      >
+        <Link href="/" className="text-neutral-400 hover:text-[var(--coral)] transition-colors">BERANDA</Link>
+        <span className="text-neutral-300 mx-1">▸</span>
+        <Link href="/#products" className="text-neutral-400 hover:text-[var(--coral)] transition-colors">PRODUK</Link>
+        <span className="text-neutral-300 mx-1">▸</span>
+        <span className="text-neutral-700 font-bold">{product.name.toUpperCase()}</span>
       </nav>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Images */}
         <div className="product-content opacity-0">
           <div
-            className="relative rounded-3xl overflow-hidden aspect-square mb-3"
-            style={{ border: "3px solid var(--fg)", background: product.color }}
+            className="relative aspect-square mb-3 overflow-hidden"
+            style={{ border: "4px solid var(--fg)", background: product.color, boxShadow: "6px 6px 0 #1A1A1A" }}
           >
             <Image
               src={product.images[activeImg]}
@@ -58,11 +71,12 @@ export function ProductDetail({ product }: { product: Product }) {
               <button
                 key={i}
                 onClick={() => setActiveImg(i)}
-                className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${
-                  activeImg === i
-                    ? "border-neutral-900 shadow-[3px_3px_0_var(--coral)]"
-                    : "border-neutral-300 opacity-60 hover:opacity-100"
-                }`}
+                className="relative w-20 h-20 overflow-hidden border-2 transition-all duration-150 hover:-translate-y-0.5"
+                style={{
+                  borderColor: activeImg === i ? "var(--fg)" : "#D1D5DB",
+                  boxShadow: activeImg === i ? "3px 3px 0 var(--coral)" : "2px 2px 0 #D1D5DB",
+                  opacity: activeImg === i ? 1 : 0.6,
+                }}
               >
                 <Image src={img} alt="" fill className="object-cover" sizes="80px" />
               </button>
@@ -73,53 +87,84 @@ export function ProductDetail({ product }: { product: Product }) {
         {/* Info */}
         <div className="flex flex-col gap-4 product-content opacity-0">
           <Badge
-            className="w-fit border border-neutral-300 text-sm font-bold"
-            style={{ background: product.color, color: "var(--fg)" }}
-          >
-            {product.emoji} {product.category.replace("-", " ")}
+            className="w-fit border-2 border-neutral-900 rounded-none"
+            style={{
+              fontFamily: "'Press Start 2P', monospace",
+              fontSize: "0.45rem",
+              background: product.color,
+              color: "var(--fg)",
+            }}
+          > {product.category.replace("-", " ").toUpperCase()}
           </Badge>
 
           <h1 className="font-display text-4xl">{product.name}</h1>
 
-          <p className="font-display text-3xl" style={{ color: product.accentColor }}>
-            {formatPrice(product.price)}
-          </p>
+          {/* Price */}
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-neutral-900 w-fit"
+            style={{ background: product.accentColor }}
+          >
+            <span
+              className="text-white font-bold"
+              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.8rem" }}
+            >
+              {formatPrice(product.price)}
+            </span>
+          </div>
 
           <p className="text-neutral-600 leading-relaxed">{product.longDescription}</p>
 
-          <Separator />
+          <Separator className="bg-neutral-200" />
 
           {/* Specs */}
-          <div className="bg-neutral-100 rounded-2xl p-4">
-            <p className="font-bold mb-2 text-sm uppercase tracking-wider">Spesifikasi</p>
-            <ul className="flex flex-col gap-1.5">
+          <div className="border-2 border-neutral-900 p-4" >
+            <p
+              className="mb-3 border-b-2 border-neutral-900 pb-2"
+              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem" }}
+            >
+              ▸ SPESIFIKASI
+            </p>
+            <ul className="flex flex-col gap-2">
               {product.specs.map((spec, i) => (
                 <li key={i} className="flex items-center gap-2 text-sm">
-                  <Check size={14} style={{ color: product.accentColor }} className="shrink-0" />
+                  <PixelCheck color={product.accentColor} />
                   {spec}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Order button */}
-          <Button
-            asChild
-            className="btn-primary text-base justify-center"
-            style={{ background: product.accentColor }}
-          >
-            <a href={product.gformUrl} target="_blank" rel="noopener noreferrer">
-              <ShoppingBag size={20} />
-              Pesan via Google Form
-            </a>
-          </Button>
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              className="flex-1 border-2 border-neutral-900 rounded-none transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
+              style={{
+                fontFamily: "'Press Start 2P', monospace",
+                fontSize: "0.5rem",
+              }}
+              asChild
+            >
+              <Link href="/">
+                <ArrowLeft size={14} />
+                KEMBALI
+              </Link>
+            </Button>
 
-          <Button variant="outline" asChild className="btn-secondary text-sm justify-center">
-            <Link href="/">
-              <ArrowLeft size={16} />
-              Kembali ke Beranda
-            </Link>
-          </Button>
+            <Button
+              className="flex-1 border-2 border-neutral-900 rounded-none text-white transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
+              style={{
+                fontFamily: "'Press Start 2P', monospace",
+                fontSize: "0.5rem",
+                background: "var(--coral)",
+              }}
+              asChild
+            >
+              <a href={product.gformUrl} target="_blank" rel="noopener noreferrer">
+                <ShoppingBag size={14} />
+                PESAN
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

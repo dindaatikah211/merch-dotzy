@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-10">
         <ProductDetail product={product} />
       </main>
       <Footer />
