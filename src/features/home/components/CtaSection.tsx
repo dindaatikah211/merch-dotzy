@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Instagram, MessageCircle, ExternalLink } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
+import { Button } from "@/shared/components/ui/button";
 import { INSTAGRAM_URL, WHATSAPP_URL } from "../contants/cta";
 
 function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
@@ -62,8 +63,6 @@ export function CtaSection() {
         </div>
 
         <div className="relative z-10 text-center py-14 px-6">
-
-
           <h2
             className="text-white cta-animate opacity-0 mb-4"
             style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "clamp(0.7rem, 2.5vw, 1.1rem)", lineHeight: 2 }}
@@ -77,26 +76,27 @@ export function CtaSection() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 cta-animate opacity-0">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 font-bold border-2 border-neutral-900 transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
-              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem", background: "white", color: "var(--fg)" }}
+            <Button
+              variant="outline"
+              className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
+              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem", background: "white", color: "var(--fg)", boxShadow: "3px 3px 0 #1A1A1A" }}
+              asChild
             >
-              <Instagram size={14} />
-              INSTAGRAM
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 font-bold border-2 border-neutral-900 transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
-              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem", background: "var(--mint)", color: "var(--fg)" }}
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+                <Instagram size={14} />
+                INSTAGRAM
+              </a>
+            </Button>
+            <Button
+              className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
+              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem", background: "var(--mint)", color: "var(--fg)", boxShadow: "3px 3px 0 #1A1A1A" }}
+              asChild
             >
-              <MessageCircle size={14} />
-              WHATSAPP
-            </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle size={14} />
+                WHATSAPP
+              </a>
+            </Button>
           </div>
         </div>
       </div>

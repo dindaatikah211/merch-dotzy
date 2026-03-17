@@ -1,7 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Plus, Minus } from "lucide-react";
+import { useEffect, useRef } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/shared/components/ui/accordion";
 import { FAQS } from "../contants/Faq";
 
 function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
@@ -15,7 +20,6 @@ function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
 }
 
 export function FaqSection() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -53,37 +57,36 @@ export function FaqSection() {
           </p>
         </div>
 
-        {/* Accordion — pixel style */}
-        <div className="flex flex-col gap-3">
+        <Accordion type="single" collapsible className="flex flex-col gap-3">
           {FAQS.map((faq, i) => (
-            <div
+            <AccordionItem
               key={i}
-              className="animate-on-scroll bg-white border-2 border-neutral-900 overflow-hidden transition-all duration-150"
+              value={`item-${i}`}
+              className="animate-on-scroll bg-white border-2 border-neutral-900 overflow-hidden transition-all duration-150 px-0"
               style={{
-                boxShadow: openIdx === i ? "4px 4px 0 var(--coral)" : "3px 3px 0 var(--fg)",
+                boxShadow: "3px 3px 0 var(--fg)",
                 transitionDelay: `${i * 60}ms`,
               }}
             >
-              <button
-                className="w-full flex items-center justify-between px-5 py-4 text-left gap-4 hover:bg-neutral-50 transition-colors"
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                aria-expanded={openIdx === i}
-              >
-                <span className="font-body font-bold text-sm md:text-base">{faq.q}</span>
-                {/* Pixel toggle button */}
-                <span
-                  className="shrink-0 w-7 h-7 flex items-center justify-center border-2 border-neutral-900 transition-colors"
-                  style={{ background: openIdx === i ? "var(--coral)" : "var(--yellow)" }}
-                >
-                  {openIdx === i ? <Minus size={12} color="white" /> : <Plus size={12} />}
-                </span>
-              </button>
-
-              <div
-                className="overflow-hidden transition-all duration-300"
-                style={{ maxHeight: openIdx === i ? "300px" : "0px" }}
-              >
-                {/* Pixel divider */}
+              <AccordionTrigger className="px-5 py-4 text-left font-body font-bold text-sm md:text-base hover:bg-neutral-50 hover:no-underline transition-colors [&>svg]:hidden group">
+                <div className="flex items-center justify-between w-full gap-4">
+                  <span>{faq.q}</span>
+                  {/* + saat closed, − saat open — pakai data-state dari Radix via group */}
+                  <span
+                    className="shrink-0 w-7 h-7 flex items-center justify-center border-2 border-neutral-900 group-data-[state=open]:bg-[var(--coral)] group-data-[state=closed]:bg-[var(--yellow)] transition-colors"
+                  >
+                    <span
+                      className="group-data-[state=open]:hidden"
+                      style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem" }}
+                    >+</span>
+                    <span
+                      className="group-data-[state=closed]:hidden text-white"
+                      style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem" }}
+                    >−</span>
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-0 pb-0">
                 <div
                   className="mx-5 h-0.5"
                   style={{
@@ -91,10 +94,10 @@ export function FaqSection() {
                   }}
                 />
                 <p className="px-5 py-4 text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );

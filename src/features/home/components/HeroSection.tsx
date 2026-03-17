@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Button } from "@/shared/components/ui/button";
+import { Badge } from "@/shared/components/ui/badge";
 import { PRODUCT_BADGES } from "../contants/Hero";
 
 function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
@@ -70,33 +72,34 @@ export function HeroSection() {
           <strong>sepenuh hati</strong>. Karena setiap karya layak dirayakan.
         </p>
 
-        {/* Pixel CTA buttons */}
+        {/* shadcn Button — pixel style */}
         <div ref={btnRef} className="flex flex-wrap gap-3 justify-center opacity-0">
-          <a
-            href="/#products"
-            className="inline-flex items-center gap-2 px-6 py-3 text-white font-bold border-2 border-neutral-900 transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
-            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", background: "var(--coral)" }}
+          <Button
+            className="border-2 border-neutral-900 rounded-none text-white font-bold transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
+            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", background: "var(--coral)", boxShadow: "3px 3px 0 #1A1A1A" }}
+            asChild
           >
-           LIHAT PRODUK
-          </a>
-          <a
-            href="/#about"
-            className="inline-flex items-center gap-2 px-6 py-3 font-bold border-2 border-neutral-900 transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
-            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", background: "transparent" }}
+            <a href="/#products">LIHAT PRODUK</a>
+          </Button>
+          <Button
+            variant="outline"
+            className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
+            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", boxShadow: "3px 3px 0 #1A1A1A" }}
+            asChild
           >
-            TENTANG KAMI
-          </a>
+            <a href="/#about">TENTANG KAMI</a>
+          </Button>
         </div>
 
-        {/* Product type badges — pixel style */}
+        {/* shadcn Badge — pixel style */}
         <div className="mt-5 flex flex-wrap justify-center gap-2">
           {PRODUCT_BADGES.map((item) => (
-            <span
+            <Badge
               key={item.label}
-              className="px-4 py-2 border-2 border-neutral-900 text-xs font-bold transition-all duration-150 hover:-translate-y-0.5"
-              style={{ background: item.color, fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem" }}
+              className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:-translate-y-0.5"
+              style={{ background: item.color, color: "var(--fg)", fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem" }}
             > {item.label}
-            </span>
+            </Badge>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Card, CardContent } from "@/shared/components/ui/card";
 import { VALUES } from "../contants/About";
 
 function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
@@ -41,7 +42,6 @@ export function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           {/* Text */}
           <div className="animate-on-scroll">
-            {/* Pixel section tag */}
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 border-2 border-white/30 mb-4"
               style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.45rem", color: "var(--fg)", background: "var(--yellow)" }}
@@ -73,11 +73,10 @@ export function AboutSection() {
               >
                 🎨
               </div>
-              {/* Pixel corner decorations */}
-              <div className="absolute -top-3 -left-3 flex gap-1">
+              <div className="absolute -top-3 -left-3">
                 <PixelStar color="var(--yellow)" size={5} />
               </div>
-              <div className="absolute -bottom-3 -right-3 flex gap-1">
+              <div className="absolute -bottom-3 -right-3">
                 <PixelStar color="var(--coral)" size={5} />
               </div>
               <span className="absolute -top-4 -right-4 text-3xl animate-wiggle" aria-hidden>✨</span>
@@ -86,35 +85,33 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Values grid — pixel card style */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {VALUES.map((v, i) => (
-            <div
+            <Card
               key={v.title}
-              className="animate-on-scroll p-5 border-2 border-white/20 hover:border-white/50 transition-all duration-150 hover:-translate-y-1"
+              className="animate-on-scroll border-2 border-white/20 rounded-none hover:border-white/50 transition-all duration-150 hover:-translate-y-1"
               style={{
                 transitionDelay: `${i * 100}ms`,
                 background: "rgba(255,255,255,0.05)",
                 boxShadow: "3px 3px 0 rgba(255,255,255,0.08)",
               }}
             >
-              {/* Pixel icon box */}
-              <div
-                className="w-10 h-10 flex items-center justify-center mb-3 border-2 border-white/20"
-                style={{ background: v.color }}
-              >
-                <v.icon size={18} color="var(--fg)" />
-              </div>
-              <div className="flex items-center gap-1 mb-2">
+              <CardContent className="p-5">
+                <div
+                  className="w-10 h-10 flex items-center justify-center mb-3 border-2 border-white/20"
+                  style={{ background: v.color }}
+                >
+                  <v.icon size={18} color="var(--fg)" />
+                </div>
                 <h3
-                  className="text-sm font-bold"
+                  className="text-white font-bold mb-2"
                   style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem", lineHeight: 1.6 }}
                 >
                   {v.title}
                 </h3>
-              </div>
-              <p className="text-white/60 text-xs leading-relaxed">{v.desc}</p>
-            </div>
+                <p className="text-white/60 text-xs leading-relaxed">{v.desc}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
