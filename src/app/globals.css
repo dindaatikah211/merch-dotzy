@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&display=swap');
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @tailwind base;
 @tailwind components;
@@ -215,16 +213,11 @@ body {
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
   }
-  .theme {
-    --font-sans: var(--font-sans);
-  }
   * {
-    @apply border-border outline-ring/50;
+    border-color: oklch(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
   }
 }

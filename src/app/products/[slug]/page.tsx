@@ -1,7 +1,7 @@
 import { Navbar } from "@/shared/components/commons/navbar/components/Navbar";
 import { Footer } from "@/shared/components/commons/footer/Footer";
 import { ProductDetail } from "@/features/products/components/ProductDetail";
-import { products } from "@/features/products/products.data";
+import { products } from "@/features/products/services";
 import { notFound } from "next/navigation";
 
 interface Props {

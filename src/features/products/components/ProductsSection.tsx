@@ -6,9 +6,9 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
-import { products } from "../services/products.data";
-import { FILTER_OPTIONS, CATEGORY_LABELS, ALL, type Filter } from "../constants";
-import { formatPrice } from "../helpers/products.helpers";
+import { products } from "../services";
+import { FILTER_OPTIONS, CATEGORY_LABELS, ALL, type Filter } from "../contants";
+import { formatPrice } from "../helpers";
 
 export function ProductsSection() {
   const [active, setActive] = useState<Filter>(ALL);
