@@ -1,21 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: 'Fredoka One', cursive;
-  --font-body: 'Nunito', sans-serif;
+  --font-display: 'Fredoka', cursive;
+  --font-body:    'Nunito', sans-serif;
 
+  /* Brand colors */
+  --navy:   #2f318b;
+  --orange: #f14a1d;
+  --white:  #ffffff;
+  --cream:  #FFF8F0;
+  --navy-light: #4446b3;
+  --navy-dark:  #1e2060;
+  --orange-light: #ff6b43;
+
+  /* Legacy aliases (untuk komponen yang masih pakai) */
+  --coral:  #f14a1d;
   --yellow: #FFD93D;
-  --coral:  #FF6B6B;
   --mint:   #6BCB77;
   --sky:    #4D96FF;
   --purple: #C77DFF;
   --peach:  #FFB347;
-  --bg:     #FDFDF8;
-  --fg:     #1A1A1A;
+  --bg:     #FFF8F0;
+  --fg:     #2f318b;
 }
 
 * {
@@ -29,8 +39,8 @@ html {
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: var(--cream);
+  color: var(--navy);
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -38,54 +48,59 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: var(--coral); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--purple); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--navy); }
 
 /* Utility classes */
 .font-display { font-family: var(--font-display); }
 .font-body    { font-family: var(--font-body); }
 
+/* Gradient text — navy to orange */
 .gradient-text {
-  background: linear-gradient(135deg, var(--coral), var(--purple), var(--sky));
+  background: linear-gradient(135deg, var(--navy), var(--orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.blob-yellow {
-  background: var(--yellow);
+/* Blob backgrounds */
+.blob-navy {
+  background: var(--navy);
   filter: blur(60px);
-  opacity: 0.35;
+  opacity: 0.15;
 }
-.blob-coral {
-  background: var(--coral);
+.blob-orange {
+  background: var(--orange);
   filter: blur(60px);
-  opacity: 0.25;
-}
-.blob-mint {
-  background: var(--mint);
-  filter: blur(60px);
-  opacity: 0.25;
+  opacity: 0.20;
 }
 
+/* Legacy blob classes */
+.blob-yellow { background: #FFD93D; filter: blur(60px); opacity: 0.25; }
+.blob-coral  { background: var(--orange); filter: blur(60px); opacity: 0.20; }
+.blob-mint   { background: #6BCB77; filter: blur(60px); opacity: 0.20; }
+
+/* Product card */
 .sticker-card {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .sticker-card:hover {
   transform: translateY(-6px) rotate(1deg);
-  box-shadow: 6px 6px 0px 0px var(--coral);
+  box-shadow: 6px 6px 0px 0px var(--orange);
 }
 
+/* Buttons — groovy rounded style */
 .btn-primary {
-  background: var(--coral);
+  background: var(--orange);
   color: #fff;
   font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 999px;
-  border: 3px solid var(--fg);
-  box-shadow: 4px 4px 0 var(--fg);
+  border: 3px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -95,22 +110,23 @@ body {
 }
 .btn-primary:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--fg);
+  box-shadow: 6px 6px 0 var(--navy);
 }
 .btn-primary:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--fg);
+  box-shadow: 2px 2px 0 var(--navy);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--fg);
+  color: var(--navy);
   font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 999px;
-  border: 3px solid var(--fg);
-  box-shadow: 4px 4px 0 var(--fg);
+  border: 3px solid var(--navy);
+  box-shadow: 4px 4px 0 var(--navy);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -119,22 +135,27 @@ body {
   text-decoration: none;
 }
 .btn-secondary:hover {
-  background: var(--yellow);
+  background: var(--orange);
+  color: #fff;
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--fg);
+  box-shadow: 6px 6px 0 var(--navy);
 }
 
+/* Section tag — groovy pill */
 .section-tag {
   display: inline-block;
   font-family: var(--font-display);
   font-size: 0.85rem;
-  padding: 0.3rem 1rem;
+  font-weight: 600;
+  padding: 0.3rem 1.2rem;
   border-radius: 999px;
-  border: 2px solid var(--fg);
-  background: var(--yellow);
+  border: 2.5px solid var(--navy);
+  background: var(--orange);
+  color: #fff;
   margin-bottom: 0.75rem;
 }
 
+/* Scroll animation */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(24px);
@@ -143,6 +164,15 @@ body {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Groovy wobble for mascot */
+@keyframes wobble {
+  0%, 100% { transform: rotate(-2deg); }
+  50%       { transform: rotate(2deg); }
+}
+.animate-wobble-slow {
+  animation: wobble 3s ease-in-out infinite;
 }
 
 @layer base {
@@ -165,11 +195,6 @@ body {
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
     --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.809 0.105 251.813);
-    --chart-2: oklch(0.623 0.214 259.815);
-    --chart-3: oklch(0.546 0.245 262.881);
-    --chart-4: oklch(0.488 0.243 264.376);
-    --chart-5: oklch(0.424 0.199 265.638);
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
@@ -199,11 +224,6 @@ body {
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.809 0.105 251.813);
-    --chart-2: oklch(0.623 0.214 259.815);
-    --chart-3: oklch(0.546 0.245 262.881);
-    --chart-4: oklch(0.488 0.243 264.376);
-    --chart-5: oklch(0.424 0.199 265.638);
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
     --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -217,7 +237,7 @@ body {
     border-color: oklch(var(--border));
   }
   body {
-    background-color: oklch(var(--background));
-    color: oklch(var(--foreground));
+    background-color: var(--cream);
+    color: var(--navy);
   }
 }
