@@ -8,11 +8,13 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "Dotzy",
   description:
-    "Stiker, gantungan kunci, pin, dan totebag yang didesain dengan sepenuh hati. Dotzy — karena setiap karya layak untuk dirayakan.",
-  keywords: ["merch", "stiker", "totebag", "pin", "gantungan kunci", "dotzy"],
+    "Dotzy — karena setiap karya layak untuk dirayakan.",
+  icons: {
+    icon: "/images/Merch.png",
+  },
   openGraph: {
     title: "Dotzy",
-    description: "Stiker, gantungan kunci, pin, dan totebag unik buatan lokal.",
+    description: "Dotzy — karena setiap karya layak untuk dirayakan.",
     type: "website",
   },
 };
