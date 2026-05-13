@@ -1,117 +1,156 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Button } from "@/shared/components/ui/button";
-import { Badge } from "@/shared/components/ui/badge";
-import { PRODUCT_BADGES } from "../contants/Hero";
-
-function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
-  return (
-    <svg width={size * 3} height={size * 3} viewBox="0 0 3 3" style={{ imageRendering: "pixelated" }} aria-hidden>
-      <rect x="1" y="0" width="1" height="1" fill={color} />
-      <rect x="0" y="1" width="3" height="1" fill={color} />
-      <rect x="1" y="2" width="1" height="1" fill={color} />
-    </svg>
-  );
-}
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef     = useRef<HTMLHeadingElement>(null);
   const subtitleRef  = useRef<HTMLParagraphElement>(null);
   const btnRef       = useRef<HTMLDivElement>(null);
-  const emojiRefs    = useRef<HTMLSpanElement[]>([]);
+  // const badgeRef     = useRef<HTMLDivElement>(null);
+  const dotRef       = useRef<HTMLDivElement>(null);
+  const zyRef        = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     import("animejs").then(({ default: anime }) => {
-      anime({ targets: titleRef.current, opacity: [0, 1], translateY: [40, 0], duration: 800, easing: "easeOutExpo", delay: 200 });
-      anime({ targets: subtitleRef.current, opacity: [0, 1], translateY: [20, 0], duration: 700, easing: "easeOutExpo", delay: 500 });
-      anime({ targets: btnRef.current, opacity: [0, 1], translateY: [20, 0], duration: 600, easing: "easeOutExpo", delay: 750 });
-      anime({ targets: emojiRefs.current, opacity: [0, 1], scale: [0, 1], rotate: () => anime.random(-20, 20), duration: 600, easing: "easeOutBack", delay: anime.stagger(80, { start: 400 }) });
-      emojiRefs.current.forEach((el, i) => {
-        anime({ targets: el, translateY: [0, -(8 + (i % 3) * 6)], duration: 1800 + i * 200, direction: "alternate", loop: true, easing: "easeInOutSine", delay: i * 100 });
-      });
+      anime({ targets: titleRef.current,    opacity: [0, 1], translateY: [40, 0], duration: 800, easing: "easeOutExpo", delay: 200 });
+      anime({ targets: subtitleRef.current, opacity: [0, 1], translateY: [20, 0], duration: 700, easing: "easeOutExpo", delay: 450 });
+      anime({ targets: btnRef.current,      opacity: [0, 1], translateY: [20, 0], duration: 600, easing: "easeOutExpo", delay: 650 });
+      // anime({ targets: badgeRef.current,    opacity: [0, 1], translateY: [15, 0], duration: 600, easing: "easeOutExpo", delay: 800 });
+
+      anime({ targets: dotRef.current, opacity: [0, 1], translateX: [-60, 0], translateY: [30, 0], duration: 900, easing: "easeOutBack", delay: 500 });
+      anime({ targets: zyRef.current,  opacity: [0, 1], translateX: [60, 0],  translateY: [30, 0], duration: 900, easing: "easeOutBack", delay: 650 });
+
+      anime({ targets: dotRef.current, translateY: [0, -12], duration: 2200, direction: "alternate", loop: true, easing: "easeInOutSine", delay: 900 });
+      anime({ targets: zyRef.current,  translateY: [0, -16], duration: 2600, direction: "alternate", loop: true, easing: "easeInOutSine", delay: 1100 });
     });
   }, []);
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12 px-4"
       ref={containerRef}
-    >
-      {/* Blob backgrounds */}
-      <div className="absolute top-[-80px] left-[-80px] w-[400px] h-[400px] rounded-full blob-yellow animate-blob" style={{ animationDelay: "0s" }} />
-      <div className="absolute bottom-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full blob-coral animate-blob" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full blob-mint animate-blob" style={{ animationDelay: "4s" }} />
-
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-3xl mx-auto">
-        {/* Pixel tag */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-2 border-2 border-neutral-900 mb-6"
-          style={{ background: "var(--yellow)", fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem" }}
-        >
-          <PixelStar color="var(--fg)" size={4} />
-          MERCH LOKAL PENUH KARYA
-          <PixelStar color="var(--fg)" size={4} />
-        </div>
-
+      className="relative min-h-screen overflow-hidden"
+      style={{ background: "var(--cream)" }}>
+      {/* Top cream section */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center pt-32 pb-16 px-6">
+        {/* Headline */}
         <h1
           ref={titleRef}
-          className="font-display text-6xl md:text-8xl leading-tight mb-6 opacity-0"
-          style={{ color: "var(--fg)" }}
+          className="font-display text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 opacity-0"
+          style={{ color: "var(--navy)", fontWeight: 700 }}
         >
-          Dotzy <span className="gradient-text">✿</span>
+          Desain Playful,{" "}
+          <span style={{ color: "var(--orange)" }}>Kualitas</span>
+          <br />Terjamin!
         </h1>
-
+        {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className="text-lg md:text-xl text-neutral-600 mb-8 leading-relaxed max-w-xl mx-auto opacity-0"
-        >
+          className="text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto opacity-0"
+          style={{ color: "var(--navy)", opacity: 0.75 }}>
           Stiker, gantungan kunci, pin, dan totebag yang didesain dengan{" "}
           <strong>sepenuh hati</strong>. Karena setiap karya layak dirayakan.
         </p>
-
-        {/* shadcn Button — pixel style */}
+        {/* CTA Buttons */}
         <div ref={btnRef} className="flex flex-wrap gap-3 justify-center opacity-0">
           <Button
-            className="border-2 border-neutral-900 rounded-none text-white font-bold transition-all duration-150 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5"
-            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", background: "var(--coral)", boxShadow: "3px 3px 0 #1A1A1A" }}
-            asChild
-          >
-            <a href="/#products">LIHAT PRODUK</a>
+            className="px-7 py-4 rounded-full text-white font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              background: "var(--orange)",
+              border: "2.5px solid var(--navy)",
+              boxShadow: "4px 4px 0 var(--navy)",
+              fontWeight: 700,
+            }}
+            asChild>
+            <a href="/#products">Lihat Produk</a>
           </Button>
           <Button
             variant="outline"
-            className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:bg-[var(--yellow)] hover:-translate-y-0.5 active:translate-y-0.5"
-            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", boxShadow: "3px 3px 0 #1A1A1A" }}
+            className="px-7 py-4 rounded-full font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              background: "#FFFFFF",
+              border: "2.5px solid var(--navy)",
+              boxShadow: "4px 4px 0 var(--navy)",
+              fontWeight: 700,
+              color: "var(--navy)",
+            }}
             asChild
           >
-            <a href="/#about">TENTANG KAMI</a>
+            <a href="/#about">Tentang Kami</a>
           </Button>
-        </div>
-
-        {/* shadcn Badge — pixel style */}
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
-          {PRODUCT_BADGES.map((item) => (
-            <Badge
-              key={item.label}
-              className="border-2 border-neutral-900 rounded-none font-bold transition-all duration-150 hover:-translate-y-0.5"
-              style={{ background: item.color, color: "var(--fg)", fontFamily: "'Press Start 2P', monospace", fontSize: "0.5rem" }}
-            > {item.label}
-            </Badge>
-          ))}
         </div>
       </div>
 
-      {/* Pixel scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.4rem" }}>SCROLL</span>
-        <svg width="8" height="20" viewBox="0 0 2 5" style={{ imageRendering: "pixelated" }} aria-hidden>
-          <rect x="0" y="0" width="2" height="1" fill="#1A1A1A" className="animate-pulse" />
-          <rect x="0" y="2" width="2" height="1" fill="#1A1A1A" className="animate-pulse" style={{ animationDelay: "0.2s" }} />
-          <rect x="0" y="4" width="2" height="1" fill="#1A1A1A" className="animate-pulse" style={{ animationDelay: "0.4s" }} />
+      {/* Wave divider */}
+      <div className="relative z-10 w-full" style={{ marginBottom: "-2px" }}>
+        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-20 md:h-28">
+          <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="#f14a1d" />
         </svg>
+      </div>
+
+      {/* Bottom navy section — maskot */}
+      <div className="relative w-full pt-0" style={{ background: "var(--orange)" }}>
+        {/* Decorative dots */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-10"
+              style={{
+                width: `${20 + (i % 4) * 15}px`,
+                height: `${20 + (i % 4) * 15}px`,
+                background: i % 2 === 0 ? "var(--orange)" : "#fff",
+                left: `${(i * 9) % 90}%`,
+                top: `${(i * 17) % 80}%`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Mascots */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 flex items-end justify-between">
+          {/* Dot — kiri */}
+          <div ref={dotRef} className="opacity-0 w-48 md:w-64 lg:w-72 shrink-0">
+            <Image
+              src="/images/Dot.png"
+              alt="Dot maskot Dotzy"
+              width={300}
+              height={380}
+              className="w-full h-auto object-contain drop-shadow-2xl"
+              priority
+            />
+          </div>
+
+          {/* Center text */}
+          <div className="text-center px-4 pb-6 flex-1">
+            <p className="font-display text-2xl md:text-3xl font-bold text-white mb-2" style={{ fontWeight: 700 }}>
+              Meet the crew!
+            </p>
+            <p className="text-white/60 text-sm inline-flex items-center gap-1.5 justify-center">
+              Dot & Zy siap menemani setiap harimu
+            </p>
+          </div>
+
+          {/* Zy — kanan */}
+          <div ref={zyRef} className="opacity-0 w-48 md:w-64 lg:w-72 shrink-0">
+            <Image
+              src="/images/Zy.png"
+              alt="Zy maskot Dotzy"
+              width={300}
+              height={380}
+              className="w-full h-auto object-contain drop-shadow-2xl"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="flex flex-col items-center gap-2 mt-6 opacity-40">
+          <span className="text-white text-xs font-bold tracking-widest uppercase">Scroll</span>
+          <div className="w-0.5 h-8 bg-white rounded animate-pulse" />
+        </div>
       </div>
     </section>
   );
