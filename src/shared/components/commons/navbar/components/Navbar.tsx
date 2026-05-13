@@ -45,7 +45,7 @@ export function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="px-4 py-2 text-sm font-bold transition-all duration-200 group"
+                className="px-4 py-2 text-md font-bold transition-all duration-200 group"
                 style={{ color: "var(--navy)", fontWeight: 700 }}
               >
                 <span className="group-hover:text-[var(--orange)] transition-colors duration-200">
@@ -138,7 +138,7 @@ export function Navbar() {
                   <SheetClose key={l.href} asChild>
                     <a
                       href={l.href}
-                      className="flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-150 hover:bg-[var(--navy)] hover:text-white"
+                      className="flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-md transition-all duration-150 hover:bg-[var(--navy)] hover:text-white"
                       style={{ color: "var(--navy)", fontWeight: 700 }}
                     >
                       <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "var(--orange)" }} />
