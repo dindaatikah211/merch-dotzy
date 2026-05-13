@@ -110,7 +110,7 @@ export function HeroSection() {
         </div>
 
         {/* Mascots */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 flex items-end justify-between">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 flex items-center justify-between">
           {/* Dot — kiri */}
           <div ref={dotRef} className="opacity-0 w-48 md:w-64 lg:w-72 shrink-0">
             <Image
@@ -124,11 +124,11 @@ export function HeroSection() {
           </div>
 
           {/* Center text */}
-          <div className="text-center px-4 pb-6 flex-1">
-            <p className="font-display text-2xl md:text-3xl font-bold text-white mb-2" style={{ fontWeight: 700 }}>
+          <div className="text-center px-4 flex-1">
+            <p className="font-display text-3xl md:text-4xl font-bold text-white mb-2" style={{ fontWeight: 700 }}>
               Meet the crew!
             </p>
-            <p className="text-white/60 text-sm inline-flex items-center gap-1.5 justify-center">
+            <p className="text-white/60 text-lg inline-flex items-center gap-1.5 justify-center">
               Dot & Zy siap menemani setiap harimu
             </p>
           </div>
@@ -147,9 +147,9 @@ export function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="flex flex-col items-center gap-2 mt-6 opacity-40">
+        <div className="flex flex-col items-center gap-2 mt-5 opacity-40">
           <span className="text-white text-xs font-bold tracking-widest uppercase">Scroll</span>
-          <div className="w-0.5 h-8 bg-white rounded animate-pulse" />
+          <div className="w-0.5 h-5 bg-white rounded animate-pulse" />
         </div>
       </div>
     </section>
