@@ -38,7 +38,7 @@ export function HeroSection() {
         {/* Headline */}
         <h1
           ref={titleRef}
-          className="font-display text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 opacity-0"
+          className="font-display text-5xl md:text-7xl lg:text-8xl leading-tight mb-5 opacity-0"
           style={{ color: "var(--navy)", fontWeight: 700 }}
         >
           Desain Playful,{" "}
@@ -56,7 +56,7 @@ export function HeroSection() {
         {/* CTA Buttons */}
         <div ref={btnRef} className="flex flex-wrap gap-3 justify-center opacity-0">
           <Button
-            className="px-7 py-4 rounded-full text-white font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
+            className="px-7 py-3 rounded-full text-white font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
             style={{
               background: "var(--orange)",
               border: "2.5px solid var(--navy)",
@@ -68,7 +68,7 @@ export function HeroSection() {
           </Button>
           <Button
             variant="outline"
-            className="px-7 py-4 rounded-full font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
+            className="px-7 py-3 rounded-full font-bold text-lg transition-all duration-200 hover:-translate-y-0.5"
             style={{
               background: "#FFFFFF",
               border: "2.5px solid var(--navy)",
@@ -101,7 +101,7 @@ export function HeroSection() {
               style={{
                 width: `${20 + (i % 4) * 15}px`,
                 height: `${20 + (i % 4) * 15}px`,
-                background: i % 2 === 0 ? "var(--orange)" : "#fff",
+                background: "#fff",
                 left: `${(i * 9) % 90}%`,
                 top: `${(i * 17) % 80}%`,
               }}
@@ -149,7 +149,7 @@ export function HeroSection() {
         {/* Scroll indicator */}
         <div className="flex flex-col items-center gap-2 mt-5 opacity-40">
           <span className="text-white text-xs font-bold tracking-widest uppercase">Scroll</span>
-          <div className="w-0.5 h-5 bg-white rounded animate-pulse" />
+          <div className="w-0.5 h-6 bg-white rounded animate-pulse" />
         </div>
       </div>
     </section>

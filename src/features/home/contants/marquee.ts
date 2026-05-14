@@ -1,7 +1,7 @@
 export const MARQUEE_ITEMS = [
-  "✨ Stiker Vinyl Premium",
+  "Stiker Vinyl Premium",
   "Gantungan Kunci Acrylic",
-  "Pin Button & Enamel",
+  "Pin Button",
   "Totebag Canvas",
   "Desain Original",
   "Warna Cerah & Ceria",

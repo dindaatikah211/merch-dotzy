@@ -1,120 +1,102 @@
-import { Instagram, MessageCircle } from "lucide-react";
+"use client";
+
+import Image from "next/image";
+import { Instagram, MessageCircle, Heart } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Separator } from "@/shared/components/ui/separator";
 import { INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL } from "../navbar/contants";
 
-function PixelStar({ color, size = 8 }: { color: string; size?: number }) {
-  return (
-    <svg width={size * 3} height={size * 3} viewBox="0 0 3 3" style={{ imageRendering: "pixelated" }} aria-hidden>
-      <rect x="1" y="0" width="1" height="1" fill={color} />
-      <rect x="0" y="1" width="3" height="1" fill={color} />
-      <rect x="1" y="2" width="1" height="1" fill={color} />
-    </svg>
-  );
-}
-
-function PixelDiamond({ color, size = 8 }: { color: string; size?: number }) {
-  return (
-    <svg width={size * 3} height={size * 3} viewBox="0 0 3 3" style={{ imageRendering: "pixelated" }} aria-hidden>
-      <rect x="1" y="0" width="1" height="1" fill={color} />
-      <rect x="0" y="1" width="3" height="1" fill={color} />
-      <rect x="1" y="2" width="1" height="1" fill={color} />
-    </svg>
-  );
-}
-
 export function Footer() {
   return (
-    <footer style={{ background: "var(--fg)", color: "#fff" }}>
-      <div className="max-w-6xl mx-auto px-4 py-10">
+    <footer style={{ background: "var(--navy)", color: "#fff" }}>
 
-        {/* Mobile: compact 2-col, Desktop: 3-col */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">
 
-          {/* Brand — full width on mobile */}
-          <div className="flex flex-col gap-3 md:col-span-1">
-            <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.85rem", color: "var(--yellow)" }}>
-              DOTZY
-            </span>
+          {/* Brand */}
+          <div className="flex-col flex items-start gap-4">
+            <Image
+              src="/images/logo dotzy about.png"
+              alt="Dotzy Merch"
+              width={200}
+              height={52}
+              className="h-14 w-auto object-contain"
+            />
             <p className="text-white/60 text-sm leading-relaxed">
               Merch penuh hati, desain penuh makna.
             </p>
-            <div className="flex items-center gap-2">
-              <PixelStar color="var(--yellow)" size={4} />
-              <PixelDiamond color="var(--mint)" size={4} />
-              <PixelStar color="var(--coral)" size={3} />
-              <PixelDiamond color="var(--sky)" size={4} />
-              <PixelStar color="var(--yellow)" size={3} />
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                className="w-9 h-9 rounded-full border-2 transition-all duration-200 hover:bg-[var(--orange)] hover:border-[var(--orange)] hover:text-white"
+                style={{ borderColor: "rgba(255,255,255,0.3)", background: "transparent", color: "white" }}
+                asChild
+              >
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Instagram size={15} />
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="w-9 h-9 rounded-full border-2 transition-all duration-200 hover:bg-[var(--orange)] hover:border-[var(--orange)] hover:text-white"
+                style={{ borderColor: "rgba(255,255,255,0.3)", background: "transparent", color: "white" }}
+                asChild
+              >
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <MessageCircle size={15} />
+                </a>
+              </Button>
             </div>
           </div>
 
-          {/* Mobile: MENU + IKUTI KAMI sejajar dalam 2 kolom */}
+          {/* Mobile: 2 kolom sejajar, Desktop: 2 kolom terpisah */}
           <div className="grid grid-cols-2 gap-6 md:contents">
             {/* Nav */}
             <div className="flex flex-col gap-3">
-              <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.55rem", color: "var(--yellow)", letterSpacing: "1px" }}>
-                ▸ MENU
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--orange)" }}>
+                Menu
               </p>
               <nav className="flex flex-col gap-2">
                 {NAV_LINKS.map((l) => (
                   <a
                     key={l.href}
                     href={l.href}
-                    className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 group"
-                  >
-                    <span
-                      className="w-1.5 h-1.5 inline-block opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{ background: "var(--coral)" }}
-                    />
+                    className="text-sm font-medium text-white/60 hover:text-white transition-colors flex items-center gap-2 group">
                     {l.label}
                   </a>
                 ))}
               </nav>
             </div>
 
-            {/* Socials */}
+            {/* Info */}
             <div className="flex flex-col gap-3">
-              <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.55rem", color: "var(--yellow)", letterSpacing: "1px" }}>
-                ▸ SOSIAL
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--orange)" }}>
+                Info
               </p>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="w-9 h-9 border-2 rounded-none hover:bg-[var(--yellow)] hover:text-[var(--fg)] hover:border-[var(--yellow)] transition-colors"
-                  style={{ borderColor: "rgba(255,255,255,0.2)", background: "transparent", color: "white" }}
-                  asChild
-                >
-                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <Instagram size={16} />
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="w-9 h-9 border-2 rounded-none hover:bg-[var(--mint)] hover:text-[var(--fg)] hover:border-[var(--mint)] transition-colors"
-                  style={{ borderColor: "rgba(255,255,255,0.2)", background: "transparent", color: "white" }}
-                  asChild
-                >
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <MessageCircle size={16} />
-                  </a>
-                </Button>
+              <div className="flex flex-col gap-2">
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">
+                  Instagram
+                </a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">
+                  WhatsApp
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <Separator className="bg-white/10 mb-6" />
+        <Separator className="mb-6" style={{ background: "rgba(255,255,255,0.1)" }} />
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-2">
-          <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.45rem", color: "rgba(255,255,255,0.4)" }}>
-            MADE WITH LOVE BY DOTZY
-          </span>
-          <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.45rem", color: "rgba(255,255,255,0.4)" }}>
-            © {new Date().getFullYear()} DOTZY. ALL RIGHTS RESERVED.
-          </span>
+          <p className="text-xs flex items-center gap-1.5 text-white/40">
+            Made with <Heart size={11} fill="var(--orange)" stroke="var(--orange)" /> by Dotzy
+          </p>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} Dotzy Merch. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
