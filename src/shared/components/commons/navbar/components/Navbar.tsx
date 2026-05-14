@@ -30,7 +30,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logo.png"
+            src="/images/logo dotzy.png"
             alt="Dotzy Merch"
             width={120}
             height={48}
@@ -123,7 +123,7 @@ export function Navbar() {
             {/* Mobile header */}
             <div className="px-6 py-4 border-b-4" style={{ borderColor: "var(--navy)" }}>
               <Image
-                src="/images/logo.png"
+                src="/images/logo dotzy.png"
                 alt="Dotzy Merch"
                 width={100}
                 height={40}

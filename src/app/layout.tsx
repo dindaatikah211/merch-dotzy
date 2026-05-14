@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Dotzy — karena setiap karya layak untuk dirayakan.",
   icons: {
-    icon: "/images/Merch.png",
+    icon: "/images/logo dotzy.png",
   },
   openGraph: {
     title: "Dotzy",
