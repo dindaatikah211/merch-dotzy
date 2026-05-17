@@ -7,10 +7,10 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Dotzy",
-  description:
-    "Dotzy — karena setiap karya layak untuk dirayakan.",
+  description: "Dotzy — karena setiap karya layak untuk dirayakan.",
   icons: {
-    icon: "/images/logo dotzy.png",
+    icon: "/images/Dot.png",
+    apple: "/images/Dot.png",
   },
   openGraph: {
     title: "Dotzy",
@@ -30,11 +30,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased font-body bg-neutral-50 text-neutral-900">
+      <body className="antialiased font-body" style={{ background: "var(--cream)", color: "var(--navy)" }}>
         {children}
       </body>
     </html>
