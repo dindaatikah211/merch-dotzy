@@ -9,7 +9,6 @@ export interface Product {
   description: string;
   longDescription: string;
   specs: string[];
-  emoji: string;
   color: string;
   accentColor: string;
   gformUrl: string;
