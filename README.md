@@ -1,6 +1,6 @@
-# Dotzy ✿ — Merch Penuh Hati
+# Dotzy Merch 🐰
 
-Website merch untuk produk stiker, gantungan kunci, pin, dan totebag dengan pixel arcade style.
+Brand merchandise lokal dengan desain kartun playful yang relatable buat kehidupan mahasiswa — stiker, pin, gantungan kunci, dan totebag.
 
 ## Quick Start
 
@@ -10,29 +10,28 @@ Website merch untuk produk stiker, gantungan kunci, pin, dan totebag dengan pixe
 
 ### Install & Run
 
-```bash
+\```bash
 # Install dependencies
 pnpm install
 
 # Jalankan development server
 pnpm dev
-```
+\```
 
 Buka [http://localhost:3000](http://localhost:3000) di browser.
 
 ## Tech Stack
 
-- **Next.js 16** — App Router
+- **Next.js** — App Router
 - **TypeScript**
 - **Tailwind CSS**
 - **Anime.js** — animasi section & hero
 - **Lucide React** — icons
-- **Shadcn UI** — komponen UI (Button, Badge, Sheet, Accordion, Card, Separator)
-- **Press Start 2P** — pixel arcade font
+- **Shadcn UI** — Button, Badge, Sheet, Accordion, Card, Separator
 
 ## Struktur Folder
 
-```
+\```
 src/
 ├── app/                        # Next.js App Router
 │   ├── layout.tsx              # Root layout
@@ -68,16 +67,27 @@ src/
     │       └── sheet.tsx
     └── lib/
         └── utils.ts            # cn() utility
-```
+\```
 
-##  Deploy ke Vercel
+## Deploy ke Vercel
 
-```bash
+\```bash
 # Install Vercel CLI
 pnpm add -g vercel
 
 # Deploy
 vercel
-```
+\```
 
 Atau push ke GitHub dan connect repo di [vercel.com](https://vercel.com).
+
+## Tim
+
+Dibuat dengan ❤️ oleh tim mahasiswa D3 Teknik Informatika — Politeknik Negeri Semarang.
+
+| Nama | NIM |
+|------|-----|
+| Andra Sakti Pragata | 3.34.23.1.04 |
+| Dinda Atikah Ghaisani | 3.34.23.1.09 |
+| Frighyta Listhira Antoino | 3.34.23.1.12 |
+| Naufal Mawar Fadhiilah | 3.34.23.1.18 |
