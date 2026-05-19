@@ -6,7 +6,15 @@ import Image from "next/image";
 import { Menu, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger, SheetClose } from "@/shared/components/ui/sheet";
-import { INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL } from "../contants";
+import { INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL, TIKTOK_URL } from "../contants";
+
+function TikTokIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +51,7 @@ export function Navbar() {
         <ul className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 className="px-4 py-2 text-md font-bold transition-all duration-200 group"
                 style={{ color: "var(--navy)", fontWeight: 700 }}
@@ -51,7 +59,7 @@ export function Navbar() {
                 <span className="group-hover:text-[var(--orange)] transition-colors duration-200">
                   {l.label}
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -61,7 +69,7 @@ export function Navbar() {
           <Button
             variant="outline"
             size="icon"
-            className="w-9 h-9 rounded-full border-2 transition-all duration-200 group"
+            className="w-9 h-9 rounded-full border-2 transition-all duration-200"
             style={{ borderColor: "var(--navy)", color: "var(--navy)" }}
             asChild
           >
@@ -79,6 +87,20 @@ export function Navbar() {
             style={{ borderColor: "var(--navy)", color: "var(--navy)" }}
             asChild
           >
+            <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+              onMouseEnter={e => e.currentTarget.style.color = "var(--orange)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--navy)"}
+            >
+              <TikTokIcon size={15} />
+            </a>
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="w-9 h-9 rounded-full border-2 transition-all duration-200"
+            style={{ borderColor: "var(--navy)", color: "var(--navy)" }}
+            asChild
+          >
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
               onMouseEnter={e => e.currentTarget.style.color = "var(--orange)"}
               onMouseLeave={e => e.currentTarget.style.color = "var(--navy)"}
@@ -86,8 +108,8 @@ export function Navbar() {
               <MessageCircle size={15} />
             </a>
           </Button>
-          <a
-            href="/#products"
+          <Link
+            href="https://forms.gle/UD9PxZszKRNfnG1H6"
             className="px-5 py-2 rounded-full text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             style={{
               background: "var(--orange)",
@@ -97,7 +119,7 @@ export function Navbar() {
             }}
           >
             Order Sekarang
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -136,14 +158,14 @@ export function Navbar() {
               <nav className="flex flex-col gap-1">
                 {NAV_LINKS.map((l) => (
                   <SheetClose key={l.href} asChild>
-                    <a
+                    <Link
                       href={l.href}
                       className="flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-md transition-all duration-150 hover:bg-[var(--navy)] hover:text-white"
                       style={{ color: "var(--navy)", fontWeight: 700 }}
                     >
                       <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "var(--orange)" }} />
                       {l.label}
-                    </a>
+                    </Link>
                   </SheetClose>
                 ))}
               </nav>
@@ -174,6 +196,19 @@ export function Navbar() {
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--navy)", e.currentTarget.style.borderColor = "var(--navy)")}
                   asChild
                 >
+                  <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer">
+                    <TikTokIcon size={16} />
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="w-10 h-10 rounded-full border-2 transition-colors"
+                  style={{ borderColor: "var(--navy)", color: "var(--navy)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "var(--orange)", e.currentTarget.style.borderColor = "var(--orange)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "var(--navy)", e.currentTarget.style.borderColor = "var(--navy)")}
+                  asChild
+                >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     <MessageCircle size={16} />
                   </a>
@@ -182,7 +217,7 @@ export function Navbar() {
 
               {/* ORDER CTA */}
               <SheetClose asChild>
-                <a
+                <Link
                   href="/#products"
                   className="w-full py-3 rounded-full text-white font-bold text-sm text-center transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0"
                   style={{
@@ -193,7 +228,7 @@ export function Navbar() {
                   }}
                 >
                   Order Sekarang
-                </a>
+                </Link>
               </SheetClose>
             </div>
           </SheetContent>

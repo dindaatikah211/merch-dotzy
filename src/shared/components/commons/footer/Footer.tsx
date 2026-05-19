@@ -4,7 +4,15 @@ import Image from "next/image";
 import { Instagram, MessageCircle, Heart } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Separator } from "@/shared/components/ui/separator";
-import { INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL } from "../navbar/contants";
+import { INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL, TIKTOK_URL } from "../navbar/contants";
+
+function TikTokIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   return (
@@ -35,6 +43,17 @@ export function Footer() {
               >
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={15} />
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="w-9 h-9 rounded-full border-2 transition-all duration-200 hover:bg-[var(--orange)] hover:border-[var(--orange)] hover:text-white"
+                style={{ borderColor: "rgba(255,255,255,0.3)", background: "transparent", color: "white" }}
+                asChild
+              >
+                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                  <TikTokIcon size={15} />
                 </a>
               </Button>
               <Button
@@ -78,6 +97,9 @@ export function Footer() {
               <div className="flex flex-col gap-2">
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">
                   Instagram
+                </a>
+                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">
+                  TikTok
                 </a>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/60 hover:text-white transition-colors">
                   WhatsApp

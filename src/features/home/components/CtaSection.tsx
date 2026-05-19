@@ -4,7 +4,15 @@ import { useEffect, useRef } from "react";
 import { Instagram, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/shared/components/ui/button";
-import { INSTAGRAM_URL, WHATSAPP_URL } from "../contants/cta";
+import { INSTAGRAM_URL, WHATSAPP_URL, TIKTOK_URL } from "../contants/cta";
+
+function TikTokIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+    </svg>
+  );
+}
 
 export function CtaSection() {
   const ref = useRef<HTMLElement>(null);
@@ -70,7 +78,7 @@ export function CtaSection() {
             </h2>
 
             <p className="text-white/70 text-sm max-w-sm mx-auto md:mx-0 cta-animate opacity-0 mb-8 leading-relaxed">
-              Update produk terbaru, behind the scenes, dan promo eksklusif ada di Instagram kami.
+              Update produk terbaru, behind the scenes, dan promo eksklusif ada di Instagram dan TikTok kami.
             </p>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-3 cta-animate opacity-0">
@@ -89,6 +97,23 @@ export function CtaSection() {
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
                   <Instagram size={15} />
                   Instagram
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                className="rounded-full font-bold text-sm transition-all duration-150 hover:-translate-y-0.5"
+                style={{
+                  background: "white",
+                  color: "var(--navy)",
+                  border: "2.5px solid white",
+                  boxShadow: "3px 3px 0 var(--orange)",
+                  fontWeight: 700,
+                }}
+                asChild
+              >
+                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer">
+                  <TikTokIcon size={15} />
+                  TikTok
                 </a>
               </Button>
               <Button
