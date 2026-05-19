@@ -6,7 +6,7 @@ export const products: Product[] = [
     slug: "stiker-pack-dotzy",
     name: "Stiker Pack Dotzy",
     category: "stiker",
-    price: 15000,
+    price: 10000,
     description: "Pack stiker vinyl waterproof motif karakter Dotzy yang cute.",
     longDescription:
       "Dapatkan pack stiker vinyl premium bergambar karakter Dotzy — Dot dan Zy! Tahan air dan sinar UV, cocok untuk laptop, tumbler, notebook, atau mana saja yang kamu mau. Dicetak dengan tinta berkualitas tinggi agar warna tetap cerah.",
@@ -18,7 +18,7 @@ export const products: Product[] = [
     ],
     color: "#FFD93D",
     accentColor: "#f14a1d",
-    gformUrl: "https://forms.gle/REPLACE_WITH_YOUR_FORM",
+    gformUrl: "https://forms.gle/UD9PxZszKRNfnG1H6",
     images: [
       "/images/product/stiker.png",
       "/images/product/stiker dot.png",
@@ -30,7 +30,7 @@ export const products: Product[] = [
     slug: "gantungan-kunci-dotzy",
     name: "Gantungan Kunci Dotzy",
     category: "gantungan-kunci",
-    price: 20000,
+    price: 15000,
     description: "Gantungan kunci acrylic karakter Dot & Zy yang lucu.",
     longDescription:
       "Gantungan kunci acrylic dua sisi dengan desain eksklusif karakter Dotzy. Tersedia pilihan karakter Dot (cloud bear) dan Zy (cloud bunny). Material acrylic tebal 3mm, transparan dan jernih. Dilengkapi ring logam anti karat.",
@@ -42,7 +42,7 @@ export const products: Product[] = [
     ],
     color: "#6BCB77",
     accentColor: "#2f318b",
-    gformUrl: "https://forms.gle/REPLACE_WITH_YOUR_FORM",
+    gformUrl: "https://forms.gle/UD9PxZszKRNfnG1H6",
     images: [
       "/images/product/ganci.png",
       "/images/product/ganci dot.png",
@@ -54,7 +54,7 @@ export const products: Product[] = [
     slug: "pin-set-dotzy",
     name: "Pin Set Dotzy",
     category: "pin",
-    price: 12000,
+    price: 15000,
     description: "Set pin button karakter Dotzy, cocok untuk jaket & tas.",
     longDescription:
       "Set pin button dengan desain cute & playful karakter Dotzy. Terbuat dari metal dengan kaca depan glossy. Ukuran standar 44mm pas banget ditempel di jaket jeans, tas, atau topi kamu. Hadir dalam set lengkap karakter Dot dan Zy.",
@@ -66,7 +66,7 @@ export const products: Product[] = [
     ],
     color: "#f14a1d",
     accentColor: "#2f318b",
-    gformUrl: "https://forms.gle/REPLACE_WITH_YOUR_FORM",
+    gformUrl: "https://forms.gle/UD9PxZszKRNfnG1H6",
     images: [
       "/images/product/pin.png",
     ],
@@ -76,7 +76,7 @@ export const products: Product[] = [
     slug: "totebag-canvas-dotzy",
     name: "Totebag Canvas Dotzy",
     category: "totebag",
-    price: 65000,
+    price: 50000,
     description: "Totebag canvas tebal dengan desain eksklusif karakter Dotzy.",
     longDescription:
       "Totebag canvas premium 12oz dengan sablon desain eksklusif karakter Dotzy. Kuat menampung buku, laptop tipis, atau belanjaan harian. Tali panjang yang nyaman di bahu. Cocok untuk kuliah, hangout, atau kegiatan sehari-hari.",
@@ -88,7 +88,7 @@ export const products: Product[] = [
     ],
     color: "#4D96FF",
     accentColor: "#f14a1d",
-    gformUrl: "https://forms.gle/REPLACE_WITH_YOUR_FORM",
+    gformUrl: "https://forms.gle/UD9PxZszKRNfnG1H6",
     images: [
       "/images/product/totebag.png",
     ],
