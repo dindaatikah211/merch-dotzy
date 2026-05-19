@@ -44,13 +44,10 @@ export function AboutSection() {
               <span style={{ color: "var(--orange)" }}>sekedar merch</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-4">
-              Dotzy lahir dari keinginan untuk menghadirkan merch yang benar-benar berkarakter.
-              Bukan sekadar barang massal — tapi karya yang bisa kamu banggakan.
+              Dotzy lahir karena kami sadar, merch yang ada di pasaran itu generik, mahal, dan terkadang nggak nyambung sama kehidupan mahasiswa. Jadi kami bikin sendiri.
             </p>
             <p className="text-white/70 leading-relaxed">
-              Kami adalah mahasiswa informatika yang percaya bahwa seni dan teknologi
-              bisa berjalan beriringan. Setiap produk dirancang dengan detail,
-              dicetak dengan kualitas terbaik, dan dikirim dengan penuh semangat.
+              Kami tim mahasiswa Teknik Informatika Polines yang bikin merch bergaya kartun playful dengan sistem Pre-Order, biar harganya tetap terjangkau dan produknya terasa eksklusif.
             </p>
           </div>
 

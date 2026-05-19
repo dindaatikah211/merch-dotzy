@@ -1,28 +1,28 @@
-import { Palette, Heart, Zap, Globe } from "lucide-react";
+import { Sparkles, ShoppingBag, Shield, Heart } from "lucide-react";
 
 export const VALUES = [
   {
-    icon: Palette,
-    title: "Desain Original",
-    desc: "Semua desain dibuat sendiri dari nol — tidak ada yang copy-paste dari mana-mana.",
+    icon: Sparkles,
+    title: "Desain Playful & Relatable",
+    desc: "Desain kartun yang terinspirasi dari keseharian mahasiswa, lucu, estetik, dan nggak pasaran.",
     color: "var(--orange)",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Sistem Pre-Order",
+    desc: "Produksi sesuai pesanan, harga tetap terjangkau, dan setiap batch terasa eksklusif.",
+    color: "#FFD93D",
+  },
+  {
+    icon: Shield,
+    title: "Quality Control",
+    desc: "Setiap produk dicek dulu sebelum dikemas, hasil kerja sama dengan vendor terpercaya.",
+    color: "var(--navy)",
   },
   {
     icon: Heart,
     title: "Dibuat dengan Hati",
-    desc: "Dotzy artinya mengerjakan sesuatu dengan sepenuh jiwa dan cinta. Itu filosofi kami.",
-    color: "#FFD93D",
-  },
-  {
-    icon: Zap,
-    title: "Kualitas Terjamin",
-    desc: "Material premium pilihan agar produkmu tahan lama dan tetap keren.",
-    color: "var(--navy)",
-  },
-  {
-    icon: Globe,
-    title: "Untuk Semua Orang",
-    desc: "Bukan hanya anak IT — siapa pun bisa menemukan produk yang cocok di sini.",
+    desc: "Dari desain sampai packaging, semua kami kerjain dengan detail dan semangat.",
     color: "#6BCB77",
   },
 ] as const;
