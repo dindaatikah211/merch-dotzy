@@ -1,26 +1,30 @@
 export const FAQS = [
   {
-    q: "Bagaimana cara memesan produk Dotzy?",
-    a: "Pilih produk yang kamu suka, klik tombol 'Pesan via Google Form', lalu isi form dengan lengkap. Kami akan segera menghubungimu via WhatsApp untuk konfirmasi pesanan.",
+    q: "Cara pesan gimana?",
+    a: "Isi Google Form yang ada di halaman produk, nanti kami langsung hubungi via WhatsApp buat konfirmasi pesanan dan pembayaran.",
   },
   {
-    q: "Berapa lama proses pengerjaan pesanan?",
-    a: "Untuk stiker dan pin biasanya 3–5 hari kerja. Untuk totebag dan gantungan kunci custom bisa 5–7 hari kerja. Kami selalu info update pengerjaan via WhatsApp.",
+    q: "Kenapa pakai sistem Pre-Order?",
+    a: "Biar produknya nggak pasaran dan harga tetap terjangkau! Kami produksi sesuai pesanan yang masuk, jadi setiap batch terasa eksklusif.",
   },
   {
-    q: "Apakah bisa custom desain?",
-    a: "Saat ini produk yang tersedia adalah koleksi ready stock dengan desain original Dotzy. Untuk custom desain, silakan hubungi kami dulu via WhatsApp — kami terbuka untuk diskusi!",
+    q: "Produk apa aja yang ada?",
+    a: "Ada stiker, pin, gantungan kunci, dan totebag. Semua dengan desain kartun playful ala kehidupan mahasiswa. Tersedia juga paket bundle yang lebih hemat!",
   },
   {
-    q: "Metode pembayaran apa yang tersedia?",
-    a: "Kami menerima transfer bank (BCA, Mandiri), GoPay, OVO, DANA, dan QRIS. Detail rekening akan dikirim setelah konfirmasi pesanan.",
+    q: "Berapa lama prosesnya?",
+    a: "Tergantung batch PO yang sedang berjalan. Tenang, kami selalu kasih update timeline lewat WhatsApp dari open PO sampai produk siap.",
   },
   {
-    q: "Apakah ada ongkos kirim?",
-    a: "Ongkos kirim ditanggung pembeli sesuai jarak pengiriman. Kami menggunakan JNT, Shopee Express, atau J&J. Untuk area lokal kota Semarang bisa COD dengan syarat tertentu.",
+    q: "Pembayaran bisa pakai apa?",
+    a: "Bisa transfer bank, DANA, atau QRIS.",
   },
   {
-    q: "Bagaimana jika produk datang dalam kondisi rusak?",
-    a: "Kami selalu kemas dengan hati-hati, tapi kalau ada kejadian tidak terduga, langsung foto dan kirim ke WhatsApp kami dalam 24 jam setelah terima. Kami akan segera proses penggantian.",
+    q: "Pengirimannya gimana?",
+    a: "Fleksibel! Bisa ambil langsung, meetup, atau dikirim via ekspedisi. Sesuai kebutuhanmu aja ^.^!",
+  },
+  {
+    q: "Produk datang rusak, gimana?",
+    a: "Semua produk kami cek dulu sebelum dikirim. Tapi kalau ada masalah, langsung foto dan hubungi kami via WhatsApp, kami pasti bantu selesaikan!",
   },
 ] as const;
