@@ -10,13 +10,13 @@ Brand merchandise lokal dengan desain kartun playful yang relatable buat kehidup
 
 ### Install & Run
 
-\```bash
+```bash
 # Install dependencies
 pnpm install
 
 # Jalankan development server
 pnpm dev
-\```
+```
 
 Buka [http://localhost:3000](http://localhost:3000) di browser.
 
@@ -31,7 +31,7 @@ Buka [http://localhost:3000](http://localhost:3000) di browser.
 
 ## Struktur Folder
 
-\```
+```
 src/
 ├── app/                        # Next.js App Router
 │   ├── layout.tsx              # Root layout
@@ -67,17 +67,17 @@ src/
     │       └── sheet.tsx
     └── lib/
         └── utils.ts            # cn() utility
-\```
+```
 
 ## Deploy ke Vercel
 
-\```bash
+```bash
 # Install Vercel CLI
 pnpm add -g vercel
 
 # Deploy
 vercel
-\```
+```
 
 Atau push ke GitHub dan connect repo di [vercel.com](https://vercel.com).
 
