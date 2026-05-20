@@ -12,6 +12,9 @@ import { formatPrice } from "../helpers";
 
 export function ProductDetail({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
+  const [activeVariant, setActiveVariant] = useState<number | null>(
+    product.variants ? 0 : null
+  );
 
   useEffect(() => {
     import("animejs").then(({ default: anime }) => {
@@ -25,6 +28,29 @@ export function ProductDetail({ product }: { product: Product }) {
       });
     });
   }, []);
+
+  const handleImgClick = (i: number) => {
+    setActiveImg(i);
+    if (product.variants) {
+      const variantIdx = product.variants.findIndex(
+        (v) => v.image === product.images[i]
+      );
+      setActiveVariant(variantIdx !== -1 ? variantIdx : null);
+    }
+  };
+
+  const handleVariantClick = (i: number) => {
+    setActiveVariant(i);
+    if (product.variants) {
+      const imgIdx = product.images.indexOf(product.variants[i].image);
+      if (imgIdx !== -1) setActiveImg(imgIdx);
+    }
+  };
+
+  const activeLabel =
+    product.variants && activeVariant !== null
+      ? product.variants[activeVariant].label
+      : null;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12" style={{ background: "var(--cream)", minHeight: "100vh" }}>
@@ -44,34 +70,55 @@ export function ProductDetail({ product }: { product: Product }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Images */}
         <div className="product-content opacity-0">
-          <div
-            className="relative aspect-square mb-3 overflow-hidden rounded-2xl"
-            style={{ background: product.color, border: "3px solid var(--navy)", boxShadow: "6px 6px 0 var(--navy)" }}
-          >
-            <Image
-              src={product.images[activeImg]}
-              alt={product.name}
-              fill
-              className="object-cover transition-all duration-300"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+          {/* Gambar utama */}
+          <div className="relative mb-3">
+            <div
+              className="relative aspect-square overflow-hidden rounded-2xl"
+              style={{ background: product.color, border: "3px solid var(--navy)", boxShadow: "6px 6px 0 var(--navy)" }}
+            >
+              <Image
+                src={product.images[activeImg]}
+                alt={product.name}
+                fill
+                className="object-cover transition-all duration-300"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+            {/* Label selalu tampil di pojok bawah gambar utama */}
+            <div
+              className="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold"
+              style={{
+                background: "var(--navy)",
+                color: "white",
+                border: "2px solid white",
+              }}
+            >
+              {activeLabel ?? product.name}
+            </div>
           </div>
-          <div className="flex gap-2">
-            {product.images.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveImg(i)}
-                className="relative w-20 h-20 overflow-hidden rounded-xl transition-all duration-150 hover:-translate-y-0.5"
-                style={{
-                  border: activeImg === i ? "2.5px solid var(--navy)" : "2px solid #D1D5DB",
-                  boxShadow: activeImg === i ? "3px 3px 0 var(--orange)" : "none",
-                  opacity: activeImg === i ? 1 : 0.6,
-                }}
-              >
-                <Image src={img} alt="" fill className="object-cover" sizes="80px" />
-              </button>
-            ))}
+
+          {/* Thumbnails */}
+          <div className="flex gap-2 flex-wrap">
+            {product.images.map((img, i) => {
+              const thumbVariant = product.variants?.find((v) => v.image === img);
+              const thumbLabel = thumbVariant ? thumbVariant.label : product.name;
+              return (
+                <div key={i} className="flex flex-col items-center gap-1">
+                  <button
+                    onClick={() => handleImgClick(i)}
+                    className="relative w-20 h-20 overflow-hidden rounded-xl transition-all duration-150 hover:-translate-y-0.5"
+                    style={{
+                      border: activeImg === i ? "2.5px solid var(--navy)" : "2px solid #D1D5DB",
+                      boxShadow: activeImg === i ? "3px 3px 0 var(--orange)" : "none",
+                      opacity: activeImg === i ? 1 : 0.6,
+                    }}
+                  >
+                    <Image src={img} alt={thumbLabel} fill className="object-cover" sizes="80px" />
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -84,8 +131,11 @@ export function ProductDetail({ product }: { product: Product }) {
             {product.category.replace("-", " ")}
           </Badge>
 
-          <h1 className="font-display text-4xl font-bold" style={{ color: "var(--navy)" }}>
+          <h1 className="font-display text-3xl font-bold" style={{ color: "var(--navy)" }}>
             {product.name}
+            {activeLabel && (
+              <span style={{ color: "var(--orange)" }}> — {activeLabel}</span>
+            )}
           </h1>
 
           {/* Price */}
@@ -98,8 +148,37 @@ export function ProductDetail({ product }: { product: Product }) {
               boxShadow: "3px 3px 0 var(--navy)",
             }}
           >
-            <span className="font-display text-2xl">{formatPrice(product.price)}</span>
+            <span className="font-display text-xl">{formatPrice(product.price)}</span>
           </div>
+
+          {/* Variants */}
+          {product.variants && (
+            <div>
+              <p className="font-bold text-sm mb-2 uppercase tracking-wider" style={{ color: "var(--navy)" }}>
+                Pilih Varian
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {product.variants.map((v, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleVariantClick(i)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-sm transition-all duration-150 hover:-translate-y-0.5"
+                    style={{
+                      border: activeVariant === i ? "2.5px solid var(--navy)" : "2px solid #D1D5DB",
+                      boxShadow: activeVariant === i ? "3px 3px 0 var(--orange)" : "none",
+                      background: activeVariant === i ? "var(--navy)" : "white",
+                      color: activeVariant === i ? "white" : "var(--navy)",
+                    }}
+                  >
+                    <div className="relative w-6 h-6 rounded overflow-hidden shrink-0">
+                      <Image src={v.image} alt={v.label} fill className="object-cover" sizes="24px" />
+                    </div>
+                    {v.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <p className="leading-relaxed" style={{ color: "var(--navy)", opacity: 0.7 }}>
             {product.longDescription}
@@ -164,4 +243,4 @@ export function ProductDetail({ product }: { product: Product }) {
       </div>
     </div>
   );
-} 
+}

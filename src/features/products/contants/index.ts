@@ -5,6 +5,7 @@ export type Filter = typeof ALL | ProductCategory;
 
 export const FILTER_OPTIONS: { value: Filter; label: string; }[] = [
   { value: ALL, label: "Semua" },
+  { value: "bundle", label: "Bundle" },
   { value: "stiker", label: "Stiker" },
   { value: "gantungan-kunci", label: "Gantungan Kunci" },
   { value: "pin", label: "Pin" },
@@ -12,6 +13,7 @@ export const FILTER_OPTIONS: { value: Filter; label: string; }[] = [
 ];
 
 export const CATEGORY_LABELS: Record<ProductCategory, string> = {
+  bundle: "Bundle",
   stiker: "Stiker",
   "gantungan-kunci": "Gantungan Kunci",
   pin: "Pin",

@@ -1,4 +1,9 @@
-export type ProductCategory = "stiker" | "gantungan-kunci" | "pin" | "totebag";
+export type ProductCategory = "stiker" | "gantungan-kunci" | "pin" | "totebag" | "bundle";
+
+export interface ProductVariant {
+  label: string;
+  image: string;
+}
 
 export interface Product {
   id: string;
@@ -13,4 +18,5 @@ export interface Product {
   accentColor: string;
   gformUrl: string;
   images: string[];
+  variants?: ProductVariant[];
 }
