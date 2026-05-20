@@ -17,7 +17,7 @@ export const FAQS = [
   },
   {
     q: "Pembayaran bisa pakai apa?",
-    a: "Bisa transfer bank, DANA, atau QRIS.",
+    a: "Bisa transfer Seabank atau DANA.",
   },
   {
     q: "Pengirimannya gimana?",
