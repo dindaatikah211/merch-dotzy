@@ -68,26 +68,3 @@ src/
     └── lib/
         └── utils.ts            # cn() utility
 ```
-
-## Deploy ke Vercel
-
-```bash
-# Install Vercel CLI
-pnpm add -g vercel
-
-# Deploy
-vercel
-```
-
-Atau push ke GitHub dan connect repo di [vercel.com](https://vercel.com).
-
-## Tim
-
-Dibuat dengan ❤️ oleh tim mahasiswa D3 Teknik Informatika — Politeknik Negeri Semarang.
-
-| Nama | NIM |
-|------|-----|
-| Andra Sakti Pragata | 3.34.23.1.04 |
-| Dinda Atikah Ghaisani | 3.34.23.1.09 |
-| Frighyta Listhira Antoino | 3.34.23.1.12 |
-| Naufal Mawar Fadhiilah | 3.34.23.1.18 |
