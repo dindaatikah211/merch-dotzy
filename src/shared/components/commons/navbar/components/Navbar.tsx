@@ -218,7 +218,7 @@ export function Navbar() {
               {/* ORDER CTA */}
               <SheetClose asChild>
                 <Link
-                  href="/#products"
+                  href="https://forms.gle/UD9PxZszKRNfnG1H6"
                   className="w-full py-3 rounded-full text-white font-bold text-sm text-center transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0"
                   style={{
                     background: "var(--orange)",
